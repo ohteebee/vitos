@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/bootstrap/bootstrap-flex';
+
+article {
+  @extend .container;
+  @extend .p-a-3;
+}
+@import 'app/app';
+h3 {
+    font-size: 1.2em;
+}

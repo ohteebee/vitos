@@ -1,0 +1,68 @@
+<section id="home">
+  <article>
+
+    <h1>
+      Welcome to Vito's of Greer
+    </h1>
+    <h5>
+      Authentic Italian Pizza, Subs and Pasta
+    </h5>
+    <p>
+      Family owned and operated since 2010, we treat our customers as family
+    </p>
+    <p>
+      14166 East Wade Hampton Boulevard<br>Greer, SC<br> (864)848-9900
+      <br> 10AM-9PM Everyday
+    </p>
+  </article>
+</section>
+
+<section id="about">
+  <article>
+    <h1>About Us</h1>
+    <p>
+      It's not just about the food, it's about the experience. From the time you first walk in the door, you
+      are part of the Vito's family. We want our guests to feel at home when here, we go the extra mile
+      to get you what you need. Service with smile.
+    </p>
+    <p>Homestyle authentic italian food right in your backyard.</p>
+  </article>
+</section>
+
+<section id="menu">
+  <!-- repeat for each section -->
+  <article *ngFor="let section of sections">
+    <h2>{{section.label}}</h2>
+    <p [innerHTML]="section.overview"></p>
+    <div class="row">
+      <span class="item col-sm-6 col"
+          *ngFor="let item of section.items">
+          <h3>{{item.name}}</h3>
+          <p *ngIf="item.description">
+              {{item.description}}
+          </p>
+          <em>{{item.price}}</em>
+      </span>
+    </div>
+  </article>
+</section>
+
+<!-- <h3>Pizza</h3>
+  <h4>Toppings</h4>
+  <div class="toppings" *ngFor="let topping of pizzas.toppings.veggies">
+    {{topping}}
+  </div>
+  <h4>Specials</h4>
+  <div class="menu-item" *ngFor="let pizza of pizzas.specials">
+    <h5>{{pizza.name}}</h5>
+    <span>{{pizza.description}}</span>
+</div>-->
+
+<section id="reviews">
+  <h1>Reviews</h1>
+  <div class="review-item"
+      *ngFor="let review of reviews">
+    <h5>{{review.name}}</h5>
+    <p>{{review.message}}</p>
+  </div>
+</section>
