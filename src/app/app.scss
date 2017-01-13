@@ -1,28 +1,65 @@
-
 section#home {
-    @extend .text-xs-right;
-    background-image: url('./assets/pizza.jpg');
-    background-size: cover;
-    background-position: bottom;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.7);
-    color: $gray-lightest;
+  @extend .text-xs-right;
+  background-image   : url('./assets/pizza.jpg');
+  background-size    : cover;
+  background-position: bottom;
+  box-shadow         : inset 0 0 0 1000px rgba(0,0,0,.7);
+  color              : $gray-lightest;
 
-    h1 {
-        color: $brand-info;
-    }
+  h1 {
+    color: $brand-info;
+  }
 }
 
+nav {
+  padding: 0 !important;
+  margin : 0;
+
+  ul li {
+    list-style-type: none;
+    @extend .d-inline;
+  }
+}
 
 section#menu {
-    background-color: $brand-inverse;
-    color: $gray-lightest;
-    .item {
-        margin-bottom: 10px !important;
-        p,em,h3 {
-            @extend .m-y-0;
-        }
-        em {
-            @extend .text-xs-right;
-        }
+  @extend .p-y-3;
+  background-color: $brand-inverse;
+  color           : $gray-lightest;
+
+  .section {
+    @extend .p-x-2;
+    @extend .p-y-1;
+  }
+  @media screen and (min-width: 1000px) {
+    padding-left : 50px;
+    padding-right: 50px;
+  }
+
+  article {
+    @extend .m-y-1;
+    margin-top   : 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .item {
+    @extend .m-y-1;
+
+    em,
+    h3,
+    p {
+      margin-bottom: 2px;
     }
+
+    em {
+      // margin-top: 3px;
+      // @extend .text-xs-right;
+      // @extend .d-block;
+    }
+  }
+}
+
+.row.full,
+.row.full .col {
+  // margin : 0 !important;
+  padding: 0 !important;
 }

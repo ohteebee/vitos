@@ -22,29 +22,148 @@
     <h1>About Us</h1>
     <p>
       It's not just about the food, it's about the experience. From the time you first walk in the door, you
-      are part of the Vito's family. We want our guests to feel at home when here, we go the extra mile
-      to get you what you need. Service with smile.
+      are part of the family. We want our guests to feel at home when here, we go the extra mile to get
+      you what you need. Service with smile.
     </p>
-    <p>Homestyle authentic italian food right in your backyard.</p>
+    <p>Homestyle authentic italian food right in your backyard. Owner Pat Leccese, sons Vito, Joey and Michael,
+      and wife Lori all have a key role in the business. It's always been family first. From New York,
+      to Maryland, to Greenville, to Maryland, back to the Upstate in Greer.</p>
   </article>
 </section>
-
+<nav>
+  <ul>
+    <li *ngFor="let section of sections">
+      <a href="{{'#' + section.id}}"  *ngIf="section.id">{{section.label}}</a>
+    </li>
+  </ul>
+</nav>
 <section id="menu">
   <!-- repeat for each section -->
-  <article *ngFor="let section of sections">
+  <div class="section"
+      *ngFor="let section of sections"
+      id="{{section.id}}">
     <h2>{{section.label}}</h2>
     <p [innerHTML]="section.overview"></p>
     <div class="row">
-      <span class="item col-sm-6 col"
-          *ngFor="let item of section.items">
+      <span class="col-sm-6 col">
+      <div class="item"
+          *ngFor="let item of section.items.slice(0,section.breakpoint)">
           <h3>{{item.name}}</h3>
           <p *ngIf="item.description">
               {{item.description}}
           </p>
           <em>{{item.price}}</em>
+      </div>
+      </span>
+      <span class="col-sm-6 col">
+      <div class="item"
+          *ngFor="let item of section.items.slice(section.breakpoint,section.items.length)">
+          <h3>{{item.name}}</h3>
+          <p *ngIf="item.description">
+              {{item.description}}
+          </p>
+          <em>{{item.price}}</em>
+      </div>
       </span>
     </div>
-  </article>
+    </div>
+
+
+    <div class="section">
+      <h2>Create Your Own Pizza</h2>
+      <div class="row item">
+
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+      <p>9-Inch</p>
+      </span>
+            <span class="col col-xs-4">
+          <p>14-Inch</p>
+      </span>
+            <span class="col col-xs-4">
+          <p>16-Inch</p>
+      </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <h3 class="col col-xs-6">Neapolitan (Thin Crust)</h3>
+
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+              <p>$6.25</p>
+          </span>
+            <span class="col col-xs-4">
+              <p>$10.75</p>
+          </span>
+            <span class="col col-xs-4">
+              <p>$12.25</p>
+          </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <h3 class="col col-xs-6">Sicilian (Thick Crust)</h3>
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+              <p>-</p>
+          </span>
+            <span class="col col-xs-4">
+              <p>-</p>
+          </span>
+            <span class="col col-xs-4">
+              <p>$16.50</p>
+          </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <h3 class="col col-xs-6">Toppings</h3>
+        <p class="m-l-1 d-block">
+          Sausage, pepperoni, chicken, ground beef, ham, prosciutto, clams, anchovies, mushrooms, green peppers,
+          broccoli, spinach, black olives, artichoke hearts, jalapenos, roasted peppers, sundried tomatoes,
+          pineapple, fresh tomatoes, onions, eggplant, banana peppers, ricotta, feta
+        </p>
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+              <p>
+                $0.95 per
+              </p>
+          </span>
+            <span class="col col-xs-4">
+              <p>$1.50 per</p>
+          </span>
+            <span class="col col-xs-4">
+              <p>$2.00 per</p>
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section"
+        *ngFor="let section of pizzas">
+      <h2>{{section.label}}</h2>
+      <div class="row item"
+          *ngFor="let item of section.items">
+        <h3 class="col col-xs-6">{{item.name}}</h3>
+        <p class="m-l-1 d-block"
+            *ngIf="item.description">
+          {{item.description}}
+          </p>
+          <div class="col col-xs-6 offset-xs-6">
+            <div class="row p-r-1">
+              <span class="col col-xs-4"
+                  *ngFor="let price of item.prices">
+                <p>{{price}}</p>
+                </span>
+            </div>
+          </div>
+          </div>
+          </div>
 </section>
 
 <!-- <h3>Pizza</h3>
@@ -59,10 +178,18 @@
 </div>-->
 
 <section id="reviews">
-  <h1>Reviews</h1>
-  <div class="review-item"
-      *ngFor="let review of reviews">
-    <h5>{{review.name}}</h5>
-    <p>{{review.message}}</p>
-  </div>
+  <article>
+    <!-- <h1>Reviews</h1> -->
+    <div class="review-item"
+        *ngFor="let review of reviews">
+      <h5>{{review.name}}</h5>
+      <p>{{review.message}}</p>
+      </div>
+  </article>
 </section>
+
+<footer>
+  <article>
+    Check us out on <a href="https://www.facebook.com/Vitos-Pizza-Subs-and-Pasta-Greer-South-Carolina-212026545479711/">Facebook</a>
+  </article>
+</footer>
