@@ -169,10 +169,10 @@ export class AppComponent implements OnInit {
           { name: 'Tizio Delight', description: 'Fresh dough filled iwth meatballs, sausage, mushrooms, green peppers, onions and mozzarella', price: '$7.50' }
         ]
       }, {
-        label: 'Pasta Your Way',
+        label: 'Pasta',
         id: 'pasta',
         overview: 'All pasta dishes come with our House Salad and bread. Your choice of spaghetti, linguine, fettuccine, rigatoni or angel hair.',
-        breakpoint: 6,
+        breakpoint: 14,
         items: [
           { name: 'Tomato Sauce', price: '$7.95' },
           { name: 'Meat Sauce', price: '$9.95' },
@@ -182,14 +182,8 @@ export class AppComponent implements OnInit {
           { name: 'Aglio E. Olio', description: 'With anchovies - $0.95 extra', price: '$7.95' },
           { name: 'Alla Luciano', description: 'Freshly diced tomatoes tossed with garlic, fresh basil and a nice mix of italian spices', price: '$9.45' },
           { name: 'Carbonara', description: 'Pancetta (Italian bacon), onion and peas tossed in an alfredo sauce', price: '$9.95' },
-          { name: 'Alla Puttanesca', description: 'Onions, capers, kalamata olives, anchovies and fresh marinated tomatoes, tossed in a spicy marinara sauce', price: '$9.95' }
-        ]
-      }, {
-        label: 'Pasta Specialties',
-        id: 'pasta',
-        overview: 'All Pasta Specialties come with our House Salad and bread.',
-        breakpoint: 10,
-        items: [
+          { name: 'Alla Puttanesca', description: 'Onions, capers, kalamata olives, anchovies and fresh marinated tomatoes, tossed in a spicy marinara sauce', price: '$9.95' },
+          { description: 'Beneath are pasta specialties, served with house salad and bread' },
           { name: 'Traditional Italian Lasagna', description: 'Layers of pasta with meat sauce, ricotta and Parmesan cheese with melted mozzarella', price: '$10.25' },
           { name: 'Baked Ziti', description: 'Ziti pasta tossed with ricotta and Parmesan cheese with melted mozzarella', price: '$9.50' },
           { name: 'Rigatoni Alla Vodka', description: 'Sauteed prosciatto, roasted peppers, onions and green peas tossed with our vodka sauce', price: '$10.25' },
@@ -222,30 +216,19 @@ export class AppComponent implements OnInit {
           { name: 'Chicken Bacon Cheddar', description: 'Sliced chicken breast, bacon, cheddar jack cheese, lettuce and tomato served with a side of ranch dressing', price: '$7.25' },
           { name: 'Turkey B.L.T', description: 'Sliced turkey breast, provolone cheese, bacon, lettuce and tomato served with a side of ranch dressing', price: '$7.25' }
         ]
-      }, {
-        label: 'Subs',
-        id: 'subs',
-        overview: 'Garnished with your choice of Lettuce, Tomato, Onion, Mayonnaise, Hot Peppers and our Italian Dressing',
-        items: [
-
-        ]
       },
       {
-        label: 'Cold Subs',
-        overview: 'Garnished with your choice of lettuce, tomato, onion, mayonnaise, hot peppers and our italian dressing.',
-        breakpoint: 3,
+        label: 'Subs',
+        id: 'subs',
+        overview: 'Garnished with your choice of lettuce, tomato, onion, mayonnaise, hot peppers and our italian dressing.<br>Left side cold subs, right side hot.',
+        breakpoint: 6,
         items: [
           { name: 'Italian Combination', description: 'Classic combination of ham, capiocia, genoa salami and provolone cheese', price: '$6.50' },
           { name: 'Ham & Provolone Cheese', price: '$5.95' },
           { name: 'Turkey & Provolone Cheese', price: '$5.95' },
           { name: 'Turkey Club', description: 'Lean oven roasted turkey breast, bacon and provolone cheese', price: '$6.95' },
           { name: 'Tuna Salad', price: '$6.25' },
-          { name: 'Caprese Classico', description: 'Fresh mozzarella, tomato and roasted peppers with olive oil, balsamic vinaigrette and fresh basil. Add prosciutto $1.00 extra', price: '$6.95' }
-        ]
-      }, {
-        label: 'Hot Subs',
-        breakpoint: 3,
-        items: [
+          { name: 'Caprese Classico', description: 'Fresh mozzarella, tomato and roasted peppers with olive oil, balsamic vinaigrette and fresh basil. Add prosciutto $1.00 extra', price: '$6.95' },
           { name: 'Steak & Cheese', description: 'Lettuce, tomato, mayonnaise, sauteed onions, mushrooms and sweet peppers', price: '$6.50' },
           { name: 'Pizza Steak & Chese', description: 'Grilled steak and provolone cheese topped with our tomato sauce', price: '$6.25' },
           { name: 'Chicken Steak & Cheese', description: 'Thinly sliced chicken grilled with mushrooms, sweet peppers and onions. Served with lettuce tomatoes and mayonnaise', price: '$6.50' },
@@ -270,7 +253,7 @@ export class AppComponent implements OnInit {
         ]
       }, {
         label: 'Seafood',
-        id: 'seafood',
+        id: 'sea',
         overview: 'All Seafood dishes come with our House Salad and bread.',
         breakpoint: 4,
         items: [
@@ -339,5 +322,13 @@ export class AppComponent implements OnInit {
         name: 'Wood',
         message: "I love italian food, and this is about the best I can find... This is what I'd call Italian home cooking."
       }];
+  }
+  getLinks(): any[] {
+    let links = [];
+    for (let sect of this.sections) {
+      if (sect.id && sect.id.length)
+        links.push({ 'id': sect.id, 'label': sect.label });
+    }
+    return links;
   }
 }

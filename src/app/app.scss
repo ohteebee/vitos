@@ -4,6 +4,7 @@ section#home {
   background-size    : cover;
   background-position: bottom;
   box-shadow         : inset 0 0 0 1000px rgba(0,0,0,.7);
+  height             : 100vh;
   color              : $gray-lightest;
 
   h1 {
@@ -11,20 +12,89 @@ section#home {
   }
 }
 
-nav {
-  padding: 0 !important;
-  margin : 0;
-
-  ul li {
-    list-style-type: none;
-    @extend .d-inline;
-  }
-}
-
 section#menu {
-  @extend .p-y-3;
   background-color: $brand-inverse;
   color           : $gray-lightest;
+
+  header {
+    @extend .p-a-2;
+
+    nav {
+      z-index : 99999;
+      margin  : 0;
+      position: fixed;
+      top     : 0;
+      bottom  : 0;
+      right   : auto;
+      left    : 0;
+      @extend .p-a-3;
+
+      button {
+        position: absolute;
+        top     : 10px;
+        left    : 0;
+      }
+
+      ul {
+        @extend .p-a-2;
+        width           : auto;
+        height          : auto;
+        background-color: rgba($gray-dark, .8);
+
+        li {
+          margin-left    : 10px !important;
+          list-style-type: none;
+
+          a {
+            color: $brand-info;
+          }
+        }
+      }
+    }
+  }
+
+  .category {
+    h2 {
+      height        : 100%;
+      vertical-align: middle;
+      text-align    : center;
+      width         : 100%;
+    }
+    &.open {
+      // max-height: 100%;
+    }
+
+    &#apps,
+    &#calzones,
+    &#kids,
+    &#pizza {
+      background-color: $brand-warning;
+    }
+
+    &#lite,
+    &#veal,
+    &#wraps {
+      background-color: $brand-primary;
+    }
+
+    &#drinks,
+    &#lunch,
+    &#subs {
+      background-color: $brand-danger;
+    }
+
+    &#pasta,
+    &#salads,
+    &#sea {
+      background-color: $brand-success;
+    }
+  }
+
+  #cpizza,
+  #spizza {
+    background-color: $brand-warning;
+    // color: $gray-dark;
+  }
 
   .section {
     @extend .p-x-2;
@@ -35,7 +105,8 @@ section#menu {
     padding-right: 50px;
   }
 
-  article {
+  article,
+  header {
     @extend .m-y-1;
     margin-top   : 0 !important;
     margin-bottom: 0 !important;

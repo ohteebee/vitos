@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/bootstrap/bootstrap-flex';
 
+
+section {
+  @extend .p-y-3;
+}
 article {
   @extend .container;
   @extend .p-a-3;
@@ -8,4 +12,8 @@ article {
 @import 'app/app';
 h3 {
     font-size: 1.2em;
+}
+.clickable:hover {
+  cursor: pointer !important;
+  color: $brand-info !important;
 }
