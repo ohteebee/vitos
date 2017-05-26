@@ -9,11 +9,14 @@ article {
   @extend .container;
   @extend .p-a-3;
 }
-@import 'app/app';
+@import 'app/app.component';
 h3 {
     font-size: 1.2em;
 }
-.clickable:hover {
+.clickable {
+  color: $gray-lightest;
+  &:hover {
   cursor: pointer !important;
-  color: $brand-info !important;
+  color: $light !important;
+  }
 }

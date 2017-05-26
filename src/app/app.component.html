@@ -1,12 +1,11 @@
 <section id="home">
   <article>
-
     <h1>
-      Welcome to Vito's of Greer
-    </h1>
+         Welcome to Vito's of Greer
+      </h1>
     <h5>
-      Authentic Italian Pizza, Subs and Pasta
-    </h5>
+         Authentic Italian Pizza, Subs and Pasta
+      </h5>
     <p>
       Family owned and operated since 2010, we treat our customers as family
     </p>
@@ -16,189 +15,182 @@
     </p>
   </article>
 </section>
-
 <section id="about">
   <article>
     <h1>About Us</h1>
     <p>
-      It's not just about the food, it's about the experience. From the time you first walk in the door, you
-      are part of the family. We want our guests to feel at home when here, we go the extra mile to get
-      you what you need. Service with smile.
+      It's not just about the food, it's about the experience. From the time you first walk in the door, you are part of the family. We want our guests to feel at home when here, we go the extra mile to get you what you need. Service with smile.
     </p>
-    <p>Homestyle authentic italian food right in your backyard. Owner Pat Leccese, sons Vito, Joey and Michael,
-      and wife Lori all have a key role in the business. It's always been family first. From New York,
-      to Maryland, to Greenville, to Maryland, back to the Upstate in Greer.
+    <p>Homestyle authentic italian food right in your backyard. Owner Pat Leccese, sons Vito, Joey and Michael, and wife Lori all have a key role in the business. It's always been family first. From New York, to Maryland, to Greenville, to Maryland, back
+      to the Upstate in Greer.
     </p>
   </article>
 </section>
-
 <section id="menu">
-  <h1 class="m-b-2">Menu</h1>
+  <h1 class="m-b-2" id="menu-title">Menu</h1>
   <!-- <header>
-    <nav *ngIf="showMenuNav">
-      <button class="btn btn-default mega-octicon octicon-x" (click)="showMenuNav=false"></button>
-      <ul>
-        <li *ngFor="let section of getLinks()">
-          <a href="{{'#' + section.id}}" >{{section.label}}</a>
-        </li>
-      </ul>
-    </nav>
-  </header> -->
-
+      <nav *ngIf="showMenuNav">
+        <button class="btn btn-default mega-octicon octicon-x" (click)="showMenuNav=false"></button>
+        <ul>
+          <li *ngFor="let section of getLinks()">
+            <a href="{{'#' + section.id}}" >{{section.label}}</a>
+          </li>
+        </ul>
+      </nav>
+      </header> -->
   <!-- repeat for each section -->
-  <div class="section category"
-      *ngFor="let section of sections"
-      id="{{section.id}}"
-      [ngClass]="{'open': section.show || section.id === 'pizza'}">
-    <h2 class="clickable"
-        (click)="section.show= section.show ? false:true">{{section.label}} <span class="mega-octicon" [ngClass]="{'octicon-chevron-right': !section.show, 'octicon-chevron-down': section.show}"></span></h2>
-      <span *ngIf="section.show">
-    <p [innerHTML]="section.overview"></p>
-    <div class="row">
-      <span class="col-sm-6 col">
-      <div class="item"
-          *ngFor="let item of section.items.slice(0,section.breakpoint)">
-          <h3>{{item.name}}</h3>
-          <p *ngIf="item.description">
-              {{item.description}}
-          </p>
-          <em>{{item.price}}</em>
-      </div>
-      </span>
-      <span class="col-sm-6 col">
-      <div class="item"
-          *ngFor="let item of section.items.slice(section.breakpoint,section.items.length)">
-          <h3>{{item.name}}</h3>
-          <p *ngIf="item.description">
-              {{item.description}}
-          </p>
-          <em>{{item.price}}</em>
-      </div>
-      </span>
-      </div>
-      </span>
-      </div>
-    <!-- <div *ngIf="showPizza"></div> -->
-
-      <div class="section" id="cpizza">
-        <h2>Create Your Own Pizza</h2>
-        <div class="row item">
-
-          <div class="col col-xs-6 offset-xs-6">
-            <div class="row">
-              <span class="col col-xs-4">
-      <p>9-Inch</p>
-      </span>
-              <span class="col col-xs-4">
-          <p>14-Inch</p>
-      </span>
-              <span class="col col-xs-4">
-          <p>16-Inch</p>
-      </span>
+  <div class="section category" *ngFor="let section of sections" id="{{section.id}}" [ngClass]="{'open': section.show || section.id === 'pizza'}">
+    <h2 class="clickable" (click)="section.show= section.show ? false:true; showpizza = section.id === 'pizza' && section.show ? true : false">{{section.label}} <span class="mega-octicon" [ngClass]="{'octicon-chevron-right': !section.show, 'octicon-chevron-down': section.show}"></span></h2>
+    <span *ngIf="section.show">
+      <p [innerHTML]="section.overview"></p>
+      <div class="row">
+         <span class="col-sm-6 col">
+            <div class="item"
+               *ngFor="let item of section.items.slice(0,section.breakpoint)">
+               <h3>{{item.name}}</h3>
+               <p *ngIf="item.description">
+                  {{item.description}}
+               </p>
+               <em>{{item.price}}</em>
             </div>
-          </div>
-        </div>
-        <div class="row item">
-          <h3 class="col col-xs-6">Neapolitan (Thin Crust)</h3>
-
-          <div class="col col-xs-6 offset-xs-6">
-            <div class="row">
-              <span class="col col-xs-4">
-              <p>$6.25</p>
-          </span>
-              <span class="col col-xs-4">
-              <p>$10.75</p>
-          </span>
-              <span class="col col-xs-4">
-              <p>$12.25</p>
-          </span>
+         </span>
+    <span class="col-sm-6 col">
+            <div class="item"
+               *ngFor="let item of section.items.slice(section.breakpoint,section.items.length)">
+               <h3>{{item.name}}</h3>
+               <p *ngIf="item.description">
+                  {{item.description}}
+               </p>
+               <em>{{item.price}}</em>
             </div>
-          </div>
-        </div>
-        <div class="row item">
-          <h3 class="col col-xs-6">Sicilian (Thick Crust)</h3>
-          <div class="col col-xs-6 offset-xs-6">
-            <div class="row">
-              <span class="col col-xs-4">
-              <p>-</p>
-          </span>
-              <span class="col col-xs-4">
-              <p>-</p>
-          </span>
-              <span class="col col-xs-4">
-              <p>$16.50</p>
-          </span>
-            </div>
-          </div>
-        </div>
-        <div class="row item">
-          <h3 class="col col-xs-6">Toppings</h3>
-          <p class="m-l-1 d-block">
-            Sausage, pepperoni, chicken, ground beef, ham, prosciutto, clams, anchovies, mushrooms, green peppers,
-            broccoli, spinach, black olives, artichoke hearts, jalapenos, roasted peppers, sundried tomatoes,
-            pineapple, fresh tomatoes, onions, eggplant, banana peppers, ricotta, feta
-          </p>
-          <div class="col col-xs-6 offset-xs-6">
-            <div class="row">
-              <span class="col col-xs-4">
-              <p>
-                $0.95 per
-              </p>
-          </span>
-              <span class="col col-xs-4">
-              <p>$1.50 per</p>
-          </span>
-              <span class="col col-xs-4">
-              <p>$2.00 per</p>
-          </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section" id="spizza"
-          *ngFor="let section of pizzas">
-        <h2>{{section.label}}</h2>
-        <div class="row item"
-            *ngFor="let item of section.items">
-          <h3 class="col col-xs-6">{{item.name}}</h3>
-          <p class="m-l-1 d-block"
-              *ngIf="item.description">
-            {{item.description}}
-            </p>
-            <div class="col col-xs-6 offset-xs-6">
-              <div class="row p-r-1">
-                <span class="col col-xs-4"
-                    *ngFor="let price of item.prices">
-                  <p>{{price}}</p>
-                  </span>
-              </div>
-            </div>
-            </div>
-            </div>
-</section>
-
-<!-- <h3>Pizza</h3>
-  <h4>Toppings</h4>
-  <div class="toppings" *ngFor="let topping of pizzas.toppings.veggies">
-    {{topping}}
+         </span>
   </div>
-  <h4>Specials</h4>
-  <div class="menu-item" *ngFor="let pizza of pizzas.specials">
-    <h5>{{pizza.name}}</h5>
-    <span>{{pizza.description}}</span>
-</div>-->
+  </span>
+  </div>
+  <div *ngIf="showpizza">
+    <div class="section" id="cpizza">
+      <h2>Create Your Own Pizza</h2>
+      <div class="row item">
+        <h3 class="col col-xs-6">Pizza by the Slice</h3>
+        <div class="col col-xs-6">
+          <div class="row">
+            <span class="col col-xs-12">
+                  $2.55 +$0.40 per toppings
+                  </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+                  <strong style="text-decoration: underline">9-Inch</strong>
+                  </span>
+            <span class="col col-xs-4">
+                  <strong style="text-decoration: underline">14-Inch</strong>
+                  </span>
+            <span class="col col-xs-4">
+                  <strong style="text-decoration: underline">16-Inch</strong>
+                  </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <h3 class="col col-xs-6">Neapolitan (Thin Crust)</h3>
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+                     <p>$6.95</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>$11.25</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>$13.25</p>
+                  </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <h3 class="col col-xs-6">Sicilian (Thick Crust)</h3>
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row">
+            <span class="col col-xs-4">
+                     <p>-</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>-</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>$17.50</p>
+                  </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <div class="col col-xs-6">
+          <h3>Toppings</h3>
+          <p class="m-l-1 d-block">
+            Sausage, pepperoni, ground beef, ham, prosciutto, anchovies, mushrooms, green peppers, broccoli, spinach, black olives, artichoke hearts, jalapenos, roasted peppers, sundried tomatoes, pineapple, fresh tomatoes, onions, eggplant, banana peppers, ricotta,
+            feta
+          </p>
+        </div>
+        <div class="col col-xs-6 m-t-2">
+          <div class="row">
+            <span class="col col-xs-4">
+                     <p>$1.10 per</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>$1.75 per</p>
+                  </span>
+            <span class="col col-xs-4">
+                     <p>$2.25 per</p>
+                  </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="spizza">
+      <h2>{{pizzas.label}}</h2>
+      <div class="row item">
+        <div class="col col-xs-6 offset-xs-6">
+          <div class="row p-r-1">
+            <span class="col col-sm-4" *ngFor="let size of ['9-Inch','14-Inch','16-Inch']">
+                  <strong style="text-decoration: underline">{{size}}</strong>
+                  </span>
+          </div>
+        </div>
+      </div>
+      <div class="row item" *ngFor="let item of pizzas.items">
+        <div class="col col-xs-6">
+          <h3>{{item.name}}</h3>
+          <p class="m-l-1 d-block" *ngIf="item.description">
+            {{item.description}}
+          </p>
+        </div>
+        <div class="col col-xs-6">
+          <div class="row p-r-1">
+            <span class="col col-sm-4" *ngFor="let price of item.prices">
+                     <p>{{price}}</p>
+                  </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end menu -->
 
+<!-- start reviews -->
 <section id="reviews">
   <article>
     <!-- <h1>Reviews</h1> -->
-    <div class="review-item"
-        *ngFor="let review of reviews">
+    <div class="review-item" *ngFor="let review of reviews">
       <h5>{{review.name}}</h5>
       <p>{{review.message}}</p>
-      </div>
+    </div>
   </article>
 </section>
-
 <footer>
   <article>
     Check us out on <a href="https://www.facebook.com/Vitos-Pizza-Subs-and-Pasta-Greer-South-Carolina-212026545479711/">Facebook</a>

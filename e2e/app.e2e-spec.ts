@@ -1,10 +1,10 @@
-import { VitosofgreerPage } from './app.po';
+import { ProjPage } from './app.po';
 
-describe('vitosofgreer App', function() {
-  let page: VitosofgreerPage;
+describe('proj App', () => {
+  let page: ProjPage;
 
   beforeEach(() => {
-    page = new VitosofgreerPage();
+    page = new ProjPage();
   });
 
   it('should display message saying app works', () => {

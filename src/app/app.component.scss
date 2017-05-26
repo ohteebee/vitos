@@ -1,6 +1,6 @@
 section#home {
   @extend .text-xs-right;
-  background-image   : url('./assets/pizza.jpg');
+  background-image   : url('./assets/vitos-sm.png');
   background-size    : cover;
   background-position: bottom;
   box-shadow         : inset 0 0 0 1000px rgba(0,0,0,.7);
@@ -8,13 +8,17 @@ section#home {
   color              : $gray-lightest;
 
   h1 {
-    color: $brand-info;
+    color: $brand-primary;
   }
 }
 
 section#menu {
-  background-color: $brand-inverse;
+  background-color: $gray-dark;
   color           : $gray-lightest;
+
+  #menu-title {
+    margin-left: 5%;
+  }
 
   header {
     @extend .p-a-2;
@@ -60,40 +64,41 @@ section#menu {
       text-align    : center;
       width         : 100%;
     }
+
     &.open {
       // max-height: 100%;
     }
 
     &#apps,
+    &#lunch,
+    &#subs,
+    &#veal,
+    &#wraps {
+      background-color: $brand-primary !important;
+    }
+
     &#calzones,
+    &#drinks,
     &#kids,
-    &#pizza {
-      background-color: $brand-warning;
+    &#salads {
+      h2 {
+        color: black !important;
+      }
+      background-color: $light;
+      color           : black !important;
     }
 
     &#lite,
-    &#veal,
-    &#wraps {
-      background-color: $brand-primary;
-    }
-
-    &#drinks,
-    &#lunch,
-    &#subs {
-      background-color: $brand-danger;
-    }
-
     &#pasta,
-    &#salads,
+    &#pizza,
     &#sea {
-      background-color: $brand-success;
+      background-color: $brand-danger !important;
     }
   }
 
   #cpizza,
   #spizza {
-    background-color: $brand-warning;
-    // color: $gray-dark;
+    background-color: $brand-danger !important;
   }
 
   .section {
@@ -127,6 +132,16 @@ section#menu {
       // @extend .d-block;
     }
   }
+}
+
+#about,
+#reviews {
+  background-color: $gray-lightest;
+}
+
+footer {
+  background-color: $gray-dark;
+  color           : $light;
 }
 
 .row.full,
